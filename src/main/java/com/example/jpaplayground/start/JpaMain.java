@@ -33,7 +33,7 @@ public class JpaMain {
     public static void logic(EntityManager em) {
 
         String id = "id1";
-        Member member = new Member();
+        MemberStart member = new MemberStart();
         member.setId(id);
         member.setUsername("지한");
         member.setAge(2);
@@ -45,11 +45,11 @@ public class JpaMain {
         member.setAge(20);
 
         //한 건 조회
-        Member findMember = em.find(Member.class, id);
+        MemberStart findMember = em.find(MemberStart.class, id);
         System.out.println("findMember=" + findMember.getUsername() + ", age=" + findMember.getAge());
 
         //목록 조회
-        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
+        List<MemberStart> members = em.createQuery("select m from Member m", MemberStart.class).getResultList();
         System.out.println("members.size=" + members.size());
 
         //삭제
